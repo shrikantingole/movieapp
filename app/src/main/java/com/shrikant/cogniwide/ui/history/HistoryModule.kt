@@ -1,4 +1,4 @@
-package com.shrikant.cogniwide.ui.login
+package com.shrikant.cogniwide.ui.history
 
 import androidx.lifecycle.ViewModel
 import com.network.shared.core.di.FragmentScoped
@@ -9,20 +9,20 @@ import dagger.android.ContributesAndroidInjector
 import dagger.multibindings.IntoMap
 
 /**
- * Module where classes needed to create the [SignInModule] are defined.
+ * Module where classes needed to create the [HistoryModule] are defined.
  */
 @Module
-internal abstract class SignInModule {
+internal abstract class HistoryModule {
 
 
     @FragmentScoped
     @ContributesAndroidInjector
-    internal abstract fun contributeSignInFragment(): SignInFragment
+    internal abstract fun contributeFragment(): HistoryFragment
 
     @Binds
     @IntoMap
-    @ViewModelKey(SignInViewModel::class)
-    internal abstract fun bindLoginViewModel(viewModel: SignInViewModel): ViewModel
+    @ViewModelKey(HistoryViewModel::class)
+    internal abstract fun bindLoginViewModel(viewModel: HistoryViewModel): ViewModel
 
 
 }

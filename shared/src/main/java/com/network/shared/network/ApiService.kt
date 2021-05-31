@@ -1,6 +1,5 @@
 package com.network.shared.network
 
-import com.network.shared.BuildConfig
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -10,7 +9,7 @@ open class ApiService @Inject constructor(
 ) {
 
 
-    fun callMovieListAsync() = apiClient.callMovieListAsync(BuildConfig.apiKey)
+    fun callMovieListAsync() = apiClient.callMovieListAsync()
 
 
 }

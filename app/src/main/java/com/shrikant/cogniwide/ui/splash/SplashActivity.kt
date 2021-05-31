@@ -6,14 +6,14 @@ import android.os.Handler
 import android.os.Looper
 import com.shrikant.cogniwide.R
 import com.shrikant.cogniwide.base.BaseActivity
-import com.shrikant.cogniwide.ui.login.LoginActivity
+import com.shrikant.cogniwide.ui.movie.DashBoardActivity
 
 class SplashActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         Handler(Looper.getMainLooper()).postDelayed({
-            startActivity(Intent(this, LoginActivity::class.java))
+            startActivity(Intent(this, DashBoardActivity::class.java))
             finish()
         }, 2000)
     }

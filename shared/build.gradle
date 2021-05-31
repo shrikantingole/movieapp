@@ -31,8 +31,6 @@ android {
             minifyEnabled false
             buildConfigField 'String', 'ENVIRONMENT', '"RELEASE"'
             buildConfigField 'String', 'baseUrl', baseUrl
-            buildConfigField 'String', 'apiKey', apiKey
-            buildConfigField 'String', 'imageUrl', imageUrl
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'consumer-rules.pro'
         }
         stage {
@@ -40,8 +38,6 @@ android {
             debuggable = true
             buildConfigField 'String', 'ENVIRONMENT', '"STAGING"'
             buildConfigField 'String', 'baseUrl', baseUrl
-            buildConfigField 'String', 'apiKey', apiKey
-            buildConfigField 'String', 'imageUrl', imageUrl
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'consumer-rules.pro'
         }
 
@@ -100,4 +96,6 @@ dependencies {
     kapt "android.arch.persistence.room:compiler:1.1.1"
     annotationProcessor "android.arch.persistence.room:compiler:1.1.1"
 
+    implementation 'androidx.room:room-runtime:2.3.0'
+    kapt 'androidx.room:room-compiler:2.3.0'
 }

@@ -1,8 +1,11 @@
 package com.network.shared.network
 
+import android.content.Context
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.network.shared.BuildConfig
 import com.network.shared.core.base.BaseRepository
+import com.network.shared.database.AppDatabase
+import com.network.shared.network.repository.HistoryRepository
 import com.network.shared.network.repository.MovieRepository
 import com.network.shared.util.Constants
 import dagger.Module
@@ -59,10 +62,22 @@ class NetworkModule {
             .addCallAdapterFactory(CoroutineCallAdapterFactory())
     }
 
+
+    @Singleton
+    @Provides
+    fun provideDeletedMediaDao(context: Context) = AppDatabase.buildDatabase(context)
+
     @Provides
     @Singleton
     fun provideLoginRepository(apiService: ApiService, baseRepository: BaseRepository) =
         MovieRepository(apiService, baseRepository)
 
+    @Provides
+    @Singleton
+    fun provideMediaRepository(
+        context: Context,
+        daiClass: AppDatabase
+    ): HistoryRepository = HistoryRepository(context, daiClass)
+//
 
 }

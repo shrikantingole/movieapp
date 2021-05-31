@@ -1,8 +1,8 @@
 package com.shrikant.cogniwide.base.app.di
 
 import com.network.shared.core.di.ActivityScoped
-import com.shrikant.cogniwide.ui.login.LoginActivity
-import com.shrikant.cogniwide.ui.login.SignInModule
+import com.shrikant.cogniwide.ui.container.ContainerModule
+import com.shrikant.cogniwide.ui.history.HistoryModule
 import com.shrikant.cogniwide.ui.movie.DashBoardActivity
 import com.shrikant.cogniwide.ui.movie.list.MovieListModule
 import com.shrikant.cogniwide.ui.splash.SplashActivity
@@ -29,17 +29,12 @@ abstract class ActivityBindingModule {
     )
     internal abstract fun splashActivity(): SplashActivity
 
-    @ActivityScoped
-    @ContributesAndroidInjector(
-        modules = [
-            SignInModule::class
-        ]
-    )
-    internal abstract fun loginActivity(): LoginActivity
 
     @ActivityScoped
     @ContributesAndroidInjector(
         modules = [
+            ContainerModule::class,
+            HistoryModule::class,
             MovieListModule::class
         ]
     )
